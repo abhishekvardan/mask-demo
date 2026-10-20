@@ -4,7 +4,7 @@
 
 This repo is a small, runnable showcase for two npm packages:
 
-- **[`@abhishekvardanbotta/mask`](https://www.npmjs.com/package/@abhishekvardanbotta/mask)** is a standalone library. It finds personal data in JSON and free text, replaces each value with a stable placeholder (`[EMAIL_1]`), keeps the original encrypted (AES-256-GCM), and restores it only for people allowed to see it.
+- **[`@abhishekvardanbotta/mask`](https://www.npmjs.com/package/@abhishekvardanbotta/mask)** is a standalone library. It finds personal data in JSON and free text, replaces each value with a stable placeholder (`ss1_kqfmzxat`), keeps the original encrypted (AES-256-GCM), and restores it only for people allowed to see it.
 - **[`@abhishekvardanbotta/kiln`](https://www.npmjs.com/package/@abhishekvardanbotta/kiln) 0.7.1** is an AI-agent framework with mask built in. Adding `privacy: { enabled: true }` to an agent applies it to every model call, tool call, memory write and log line.
 
 It has a Node backend (`backend/`), a Streamlit frontend (`frontend/`), and fake sample data (`samples/`).
@@ -48,7 +48,7 @@ Pick a sample file. You see the original next to what would leave your system:
 
 ```text
 original : I am Aisha Khan. Refund to IBAN GB82 WEST 1234 5698 7654 32 please. My SSN is 789-12-3456 if you need to verify.
-masked   : I am [PERSON_13]. Refund to IBAN [IBAN_1] please. My SSN is [US_SSN_1] if you need to verify.
+masked   : I am ss1_lgsogrhd. Refund to IBAN ss1_rrnnqohn please. My SSN is ss1_rabotsfi if you need to verify.
 ```
 
 The same masked data can then be restored for different roles:
@@ -78,7 +78,7 @@ The tab also shows:
 | distinct customers, revenue and transactions per customer | ✅ |
 | distinct cards per customer, cards shared between customers | ✅ |
 | support tickets joined to transactions (cross-file join on email) | ✅ |
-| top customer | ✅ (`[EMAIL_2]`, which is Priya Sharma, with 3138.34) |
+| top customer | ✅ (an `ss1_` token, which is Priya Sharma, with 3138.34) |
 
 The analyst sees zero raw emails or card numbers. The backend proves parity by mapping the masked results' keys back and comparing all 11 metrics. Only the identity labels are hidden; nothing else is lost.
 
@@ -89,11 +89,11 @@ One support agent handles a ticket. It looks the customer up, emails a refund co
 | Level | Config | What happens (ticket T-501) |
 |---|---|---|
 | 0 — off | *(none)* | The model and the logs receive the name, email, phone, SSN and card. |
-| 1 — defaults | `privacy: { enabled: true }` | The model sees `[PERSON_1]`, `[EMAIL_1]`. No tool has a grant, so `lookup_customer` only gets `[EMAIL_1]` and finds nobody. **Privacy fails closed.** |
+| 1 — defaults | `privacy: { enabled: true }` | The model sees `ss1_` tokens such as `ss1_japvsodb`. No tool has a grant, so `lookup_customer` only gets a token and finds nobody. **Privacy fails closed.** |
 | 2 — tool grants | `+ tools: { lookup_customer: ["EMAIL"], send_email: ["EMAIL", "PERSON"] }` | Each tool receives exactly what it is granted. The SSN and card in the lookup result are tokenized before the model reads them. |
 | 3 — strict | `+ policies: { CREDIT_CARD: "BLOCK" }, fields: { "ticket.ticket_id": "PUBLIC", … }` | Card numbers are removed for everyone, including the caller. Passwords and card security codes are always blocked. |
 
-At level 2, the email body says "we will text **[PHONE_1]**". `send_email` was granted `EMAIL` and `PERSON` but not `PHONE`, so the phone number stays a placeholder even inside the email. Grants are exact. Add `"PHONE"` if the email should contain it.
+At level 2, the email body says "we will text **ss1_ollqkahj**". `send_email` was granted `EMAIL` and `PERSON` but not `PHONE`, so the phone number stays a placeholder even inside the email. Grants are exact. Add `"PHONE"` if the email should contain it.
 
 For each run, the tab shows:
 
@@ -137,7 +137,7 @@ await kiln.runInlineAgent(agent, { ticket }, { privacy: { allow: ["PII"], onDeni
 - **Detection is good, not perfect.** A bare name in free text with no cue ("Priya called yesterday") is not found by the built-in rules. Classified fields (`full_name`), cues ("my name is", "Customer …", "Dr.") and pluggable NER detectors cover it.
 - **The simulated model is deterministic**, so the demo is reproducible. With real models, the KILN eval in the kiln repo measured:
   - `qwen2.5:7b`: the same task success with privacy on as off
-  - `qwen2.5:3b`: on par with the default `[EMAIL_1]` placeholders, and worse with random-hex placeholders
+  - `qwen2.5:3b`: worse with the default `ss1_` tokens (2/5 versus 5/5 without privacy), because it has to infer what each token is; close to baseline with `tokenStyle: "sequential"` (`[EMAIL_1]`, 4/5)
   - 5 trials per arm; run it on your own model before relying on it.
 - **Placeholders are pseudonymous, not anonymous.** While the vault and key exist, they are reversible by design. This demo uses a random per-process key.
 - This is not a compliance certification.

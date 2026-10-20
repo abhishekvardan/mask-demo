@@ -28,7 +28,9 @@ class SimulatedModel implements ProviderAdapter {
     };
     const lookup = toolResult("lookup_customer");
     const sent = toolResult("send_email");
-    const email = user.match(/\[EMAIL_[0-9a-f]+\]|[\w.+-]+@[\w-]+(?:\.[\w-]+)+/)?.[0];
+    // Like a real model, it reads the address from context: "... from <address>:". That is a real email with privacy
+    // off, and an opaque ss1_ placeholder with privacy on; it never knows which.
+    const email = user.match(/ from (\S+?):/)?.[1];
     if (!lookup) return { content: "", toolCalls: [{ id: "c1", name: "lookup_customer", arguments: { email } }] };
     if (lookup.error) return { content: `I could not look this customer up: ${lookup.error}` };
     if (!sent) {

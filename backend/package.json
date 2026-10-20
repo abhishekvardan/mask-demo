@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@abhishekvardanbotta/kiln": "^0.7.1",
-    "@abhishekvardanbotta/mask": "^0.1.0",
+    "@abhishekvardanbotta/mask": "^0.2.0",
     "tsx": "^4.19.3",
     "zod": "^3.24.2"
   },
