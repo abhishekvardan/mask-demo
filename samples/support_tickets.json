@@ -1,0 +1,56 @@
+[
+  {
+    "ticket_id": "T-501",
+    "customer_email": "priya.sharma@example.com",
+    "priority": "high",
+    "channel": "email",
+    "subject": "Charged twice for my order",
+    "body": "Hi, this is Priya Sharma. I was charged twice on my card 4111 1111 1111 1111 last week. Please refund me and email priya.sharma@example.com or call +91 98765 43210.",
+    "created_at": "2026-09-02T09:14:00Z"
+  },
+  {
+    "ticket_id": "T-502",
+    "customer_email": "carlos.garcia@example.org",
+    "priority": "medium",
+    "channel": "chat",
+    "subject": "Update shipping address",
+    "body": "My name is Carlos Garcia. Please ship to 1600 Mission Street instead. My phone is +1 415 555 2671.",
+    "created_at": "2026-09-03T15:40:00Z"
+  },
+  {
+    "ticket_id": "T-503",
+    "customer_email": "mei.chen@example.net",
+    "priority": "high",
+    "channel": "email",
+    "subject": "Account locked",
+    "body": "Customer Mei Chen here, locked out after login from IP 203.0.113.77. My password is Hunter2!x \u2014 please reset it.",
+    "created_at": "2026-09-04T11:02:00Z"
+  },
+  {
+    "ticket_id": "T-504",
+    "customer_email": "olumide.a@example.com",
+    "priority": "low",
+    "channel": "email",
+    "subject": "Invoice copy",
+    "body": "Dear support, please send an invoice copy to olumide.a@example.com. Thanks,\nOlumide Adeyemi",
+    "created_at": "2026-09-05T08:30:00Z"
+  },
+  {
+    "ticket_id": "T-505",
+    "customer_email": "aisha.khan@example.com",
+    "priority": "high",
+    "channel": "phone",
+    "subject": "Refund to bank account",
+    "body": "I am Aisha Khan. Refund to IBAN GB82 WEST 1234 5698 7654 32 please. My SSN is 789-12-3456 if you need to verify.",
+    "created_at": "2026-09-06T17:55:00Z"
+  },
+  {
+    "ticket_id": "T-506",
+    "customer_email": "jane.doe@example.com",
+    "priority": "medium",
+    "channel": "chat",
+    "subject": "Subscription cancel",
+    "body": "This is Jane Doe, cancel my subscription. Card 5555 5555 5555 4444, cvv 123.",
+    "created_at": "2026-09-07T12:12:00Z"
+  }
+]

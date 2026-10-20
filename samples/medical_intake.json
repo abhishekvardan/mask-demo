@@ -1,0 +1,51 @@
+[
+  {
+    "patient": {
+      "full_name": "Priya Sharma",
+      "email": "priya.sharma@example.com",
+      "date_of_birth": "1990-03-12"
+    },
+    "diagnosis": "Type 1 diabetes",
+    "medications": [
+      "insulin glargine"
+    ],
+    "allergies": [
+      "penicillin"
+    ],
+    "visit_reason": "Routine HbA1c review",
+    "clinic": "North Wing",
+    "copay": 25.0
+  },
+  {
+    "patient": {
+      "full_name": "Carlos Garcia",
+      "email": "carlos.garcia@example.org",
+      "date_of_birth": "1985-11-30"
+    },
+    "diagnosis": "Seasonal asthma",
+    "medications": [
+      "albuterol"
+    ],
+    "allergies": [],
+    "visit_reason": "Inhaler refill",
+    "clinic": "East Wing",
+    "copay": 15.0
+  },
+  {
+    "patient": {
+      "full_name": "Mei Chen",
+      "email": "mei.chen@example.net",
+      "date_of_birth": "1993-07-08"
+    },
+    "diagnosis": "Migraine",
+    "medications": [
+      "sumatriptan"
+    ],
+    "allergies": [
+      "latex"
+    ],
+    "visit_reason": "Follow-up",
+    "clinic": "North Wing",
+    "copay": 25.0
+  }
+]
