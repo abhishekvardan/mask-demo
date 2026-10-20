@@ -1,4 +1,4 @@
-"""Streamlit frontend for the mask / KILN 0.8.0 privacy demo. Start the backend first (see README)."""
+"""Streamlit frontend for the mask / KILN 0.7.1 privacy demo. Start the backend first (see README)."""
 import json
 import os
 
@@ -29,11 +29,11 @@ meta = api("GET", "/api/meta")
 st.title("🛡️ mask — hide personal data, keep everything else")
 st.caption(
     "**@abhishekvardanbotta/mask** finds personal data, swaps it for stable placeholders and keeps the originals "
-    "encrypted. **KILN 0.8.0** applies it automatically to every model call, tool call, memory write and log line. "
+    "encrypted. **KILN 0.7.1** applies it automatically to every model call, tool call, memory write and log line. "
     "All data below is fake sample data from `samples/`."
 )
 
-tab_mask, tab_analytics, tab_kiln = st.tabs(["① Standalone mask", "② Analytics without loss", "③ KILN 0.8.0 privacy levels"])
+tab_mask, tab_analytics, tab_kiln = st.tabs(["① Standalone mask", "② Analytics without loss", "③ KILN 0.7.1 privacy levels"])
 
 # ---------------------------------------------------------------------------------------------------------------
 with tab_mask:

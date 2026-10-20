@@ -1,5 +1,5 @@
 /**
- * KILN 0.8.0 with built-in privacy. One support agent, four privacy levels, one caller-role picker.
+ * KILN 0.7.1 with built-in privacy. One support agent, four privacy levels, one caller-role picker.
  * Every response reports exactly what the model saw, what each tool received, what the caller got back and what the
  * event log recorded — read from the run's own events, not reconstructed.
  */

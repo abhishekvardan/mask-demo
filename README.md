@@ -5,7 +5,7 @@
 This repo is a small, runnable showcase for two npm packages:
 
 - **[`@abhishekvardanbotta/mask`](https://www.npmjs.com/package/@abhishekvardanbotta/mask)** is a standalone library. It finds personal data in JSON and free text, replaces each value with a stable placeholder (`[EMAIL_1]`), keeps the original encrypted (AES-256-GCM), and restores it only for people allowed to see it.
-- **[`@abhishekvardanbotta/kiln`](https://www.npmjs.com/package/@abhishekvardanbotta/kiln) 0.8.0** is an AI-agent framework with mask built in. Adding `privacy: { enabled: true }` to an agent applies it to every model call, tool call, memory write and log line.
+- **[`@abhishekvardanbotta/kiln`](https://www.npmjs.com/package/@abhishekvardanbotta/kiln) 0.7.1** is an AI-agent framework with mask built in. Adding `privacy: { enabled: true }` to an agent applies it to every model call, tool call, memory write and log line.
 
 It has a Node backend (`backend/`), a Streamlit frontend (`frontend/`), and fake sample data (`samples/`).
 
@@ -13,7 +13,7 @@ It has a Node backend (`backend/`), a Streamlit frontend (`frontend/`), and fake
 samples/            customers.json · transactions.json · support_tickets.json · medical_intake.json   (all fake)
 backend/src/
   maskDemo.ts       standalone mask: protect, restore per role, analytics parity
-  kilnDemo.ts       KILN 0.8.0 support agent at four privacy levels
+  kilnDemo.ts       KILN 0.7.1 support agent at four privacy levels
   server.ts         JSON API on :8787
 frontend/app.py     Streamlit UI with three tabs
 ```
@@ -82,7 +82,7 @@ The tab also shows:
 
 The analyst sees zero raw emails or card numbers. The backend proves parity by mapping the masked results' keys back and comparing all 11 metrics. Only the identity labels are hidden; nothing else is lost.
 
-### ③ KILN 0.8.0 privacy levels
+### ③ KILN 0.7.1 privacy levels
 
 One support agent handles a ticket. It looks the customer up, emails a refund confirmation, and summarizes. Choose a level, a ticket and a caller role:
 
